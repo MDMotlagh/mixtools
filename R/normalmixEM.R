@@ -101,8 +101,11 @@ function (x, lambda = NULL, mu = NULL, sigma = NULL, k = 2,
                 "trying new starting values.\n")
             restarts <- restarts + 1
             lambda <- mu <- sigma <- NULL
-            if(restarts>maxrestarts) { stop("Too many tries!") }
-            break
+            if(restarts>maxrestarts) { 
+                      print("Too many tries! Assigning sd(x) to sigma...") 
+                      sigma = sd(x)
+            }
+            
           }
         }
         
